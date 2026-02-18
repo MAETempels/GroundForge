@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.3118613"
-     inkscape:cx="472.99208"
-     inkscape:cy="186.37641"
+     inkscape:zoom="2.6237226"
+     inkscape:cx="219.15427"
+     inkscape:cy="443.07275"
      inkscape:document-units="mm"
      inkscape:current-layer="svg8"
      inkscape:document-rotation="0"
@@ -482,7 +482,7 @@
      style="fill:#ff0000">
     <a
        id="a25181"
-       xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b,&amp;tile=5-5,-5-,5-5&amp;headside=-,c,&amp;shiftColsSW=-4&amp;shiftRowsSW=2&amp;shiftColsSE=3&amp;shiftRowsSE=1&amp;e1=crcc&amp;e1=crcl&amp;g1=clcc&amp;e3=ctc&amp;g3=ccrc&amp;f2=cclc&amp;f3=crcl"
+       xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b,&amp;tile=5-5,-5-,5-5&amp;headside=-,c,&amp;shiftColsSW=-4&amp;shiftRowsSW=2&amp;shiftColsSE=3&amp;shiftRowsSE=1&amp;e1=cclc&amp;e1=cclc&amp;g1=ccrc&amp;e3=ctc&amp;g3=clcc&amp;f2=crcc&amp;f3=crcl&amp;d2=ctcll&amp;l2=ctcrr"
        transform="matrix(2,0,0,2,70.184608,-147.55551)"
        style="fill:#000000">
       <text
@@ -2455,9 +2455,9 @@
      style="fill:#ff0000">
     <a
        id="a41935-4-6-0"
-       xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-5,5-5-&amp;headside=c,-&amp;shiftColsSW=-2&amp;shiftRowsSW=2&amp;shiftColsSE=2&amp;shiftRowsSE=2&amp;l1=ctcrr&amp;h1=ctc&amp;f1=ctctc&amp;d1=ctcll&amp;g2=crc&amp;e2=clc"
        transform="matrix(2,0,0,2,-14.482062,-147.55551)"
-       style="fill:#000000">
+       style="fill:#000000"
+       xlink:href="https://maetempels.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5,5-&amp;headside=c,-&amp;shiftColsSW=0&amp;shiftRowsSW=4&amp;shiftColsSE=2&amp;shiftRowsSE=4&amp;l1=ctcrr&amp;f1=ct&amp;d1=ctcll&amp;e2=clc&amp;f3=crc&amp;e4=ctc">
       <text
          xml:space="preserve"
          style="font-size:2.11667px;fill:#000000;fill-opacity:0.998542;stroke:none;stroke-width:0.564999;stroke-linecap:square"
@@ -2517,7 +2517,7 @@
      style="fill:#ff0000">
     <a
        id="a41935-9-6"
-       xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-,5-5&amp;headside=c,-&amp;shiftColsSW=0&amp;shiftRowsSW=2&amp;shiftColsSE=3&amp;shiftRowsSE=1&amp;l1=ctctt&amp;f1=ctc&amp;d1=ctctt&amp;g2=crc&amp;e2=clc"
+       xlink:href="https://maetempels.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5&amp;headside=c,-&amp;shiftColsSW=-1&amp;shiftRowsSW=3&amp;shiftColsSE=2&amp;shiftRowsSE=0&amp;l1=ctcrr&amp;f1=ctctc&amp;d1=ctcll&amp;e2=clc&amp;f3=ctc"
        transform="matrix(2,0,0,2,-14.482062,-147.55551)"
        style="fill:#000000">
       <text
