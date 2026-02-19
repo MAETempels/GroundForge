@@ -15,7 +15,6 @@ Pattern gallery
 * Links in last square are intended for another page under development.
 * Sidebar subjects?
 * Find out what's wrong with the size of svg. The inspector gives other values than in .svg.
-* Find out why |2 goes directly to page pattern instead of showing on this page
 
 ---
 
