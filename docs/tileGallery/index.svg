@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="299.95mm" height="249.32mm" version="1.1" viewBox="0 0 299.95 249.32" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns="https://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="248.75mm" height="297.38mm" version="1.1" viewBox="0 0 248.75 297.38" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns="https://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
   <marker id="marker2027" overflow="visible" orient="auto">
    <path transform="matrix(-.4 0 0 -.4 -4 0)" d="m0 0 5-5-17.5 5 17.5 5z" fill-rule="evenodd" stroke="#000" stroke-width="1pt"/>
@@ -71,15 +71,17 @@
   <path d="m151.98 198.37-14.647-14.647"/>
   <path d="m142.24 198.28-4.8239-4.8239"/>
  </g>
- <g transform="translate(141.53 42.948)" fill="#f00">
-  <a transform="matrix(2 0 0 2 70.185 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b,&amp;tile=5-5,-5-,5-5&amp;headside=-,c,&amp;shiftColsSW=-4&amp;shiftRowsSW=2&amp;shiftColsSE=3&amp;shiftRowsSE=1&amp;g1=ccrc&amp;e1=cclc&amp;l2=ctcrr&amp;f2=crcc&amp;d2=ctcll&amp;g3=clcc&amp;e3=cc">
-   <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">b</tspan></text>
-  </a>
- </g>
- <g transform="translate(153.77 42.948)" fill="#f00">
-  <a transform="matrix(2 0 0 2 70.185 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b,&amp;tile=5-5,-5-,5-5&amp;headside=-,c,&amp;shiftColsSW=-3&amp;shiftRowsSW=1&amp;shiftColsSE=1&amp;shiftRowsSE=3&amp;g1=ccrc&amp;e1=clcc&amp;l2=ctcrr&amp;f2=cclc&amp;d2=ctcll&amp;g3=crcc&amp;e3=ctc">
-   <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">d</tspan></text>
-  </a>
+ <g transform="translate(-145.24 48.36)" fill="#f00">
+  <g transform="translate(141.53 42.948)">
+   <a transform="matrix(2 0 0 2 70.185 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b,&amp;tile=5-5,-5-,5-5&amp;headside=-,c,&amp;shiftColsSW=-4&amp;shiftRowsSW=2&amp;shiftColsSE=3&amp;shiftRowsSE=1&amp;g1=ccrc&amp;e1=cclc&amp;l2=ctcrr&amp;f2=crcc&amp;d2=ctcll&amp;g3=clcc&amp;e3=cc">
+    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">b</tspan></text>
+   </a>
+  </g>
+  <g transform="translate(153.77 42.948)">
+   <a transform="matrix(2 0 0 2 70.185 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b,&amp;tile=5-5,-5-,5-5&amp;headside=-,c,&amp;shiftColsSW=-3&amp;shiftRowsSW=1&amp;shiftColsSE=1&amp;shiftRowsSE=3&amp;g1=ccrc&amp;e1=clcc&amp;l2=ctcrr&amp;f2=cclc&amp;d2=ctcll&amp;g3=crcc&amp;e3=ctc">
+    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">d</tspan></text>
+   </a>
+  </g>
  </g>
  <text x="31.635201" y="104.27391" fill="#000000" font-family="Calibri" font-size="5.2917px" stop-color="#000000" stroke-width=".26458" style="-inkscape-stroke:none;line-height:1.204;text-decoration-color:#000000" xml:space="preserve"><tspan x="31.635201" y="104.27391" font-size="5.2917px" stroke-width=".26458"/></text>
  <g transform="translate(.26217 -107.57)">
@@ -233,7 +235,7 @@
   <path d="m151.98 198.37-14.647-14.647"/>
   <path d="m142.24 198.28-4.8239-4.8239"/>
  </g>
- <g transform="translate(116.54 41.381)" fill="#377eb8" fill-opacity=".53333" stroke="#000" stroke-linejoin="bevel" stroke-width=".60299">
+ <g transform="translate(-28.702 89.741)" fill="#377eb8" fill-opacity=".53333" stroke="#000" stroke-linejoin="bevel" stroke-width=".60299">
   <path d="m171.18 193.37-4.8239 4.8239"/>
   <path d="m171.18 183.72-14.647 14.647"/>
   <path d="m171.18 174.07-24.207 24.207"/>
@@ -256,14 +258,14 @@
   <rect x="62.455" y="12.569" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
   <rect x="79.399" y="12.678" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
   <rect x="70.932" y="29.612" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
-  <rect x="254.84" y="206.69" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
-  <path d="m253.86 233.84h6.7174c1.2035 0 2.172-1.0734 2.172-2.4066v-7.8869c0-1.3332-0.9685-2.4066-2.172-2.4066h-6.7174" opacity=".25"/>
-  <rect x="269.27" y="211.56" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
-  <rect x="264.43" y="226.06" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
-  <path d="m274.01 205.8v1.8268c0 1.3332 0.96903 2.4066 2.1725 2.4066h8.355c1.2034 0 2.1725-1.0733 2.1725-2.4066v-1.8268" opacity=".25"/>
-  <path d="m287.73 216.16h-1.8268c-1.3332 0-2.4066 0.96902-2.4066 2.1725v8.355c0 1.2034 1.0733 2.1725 2.4066 2.1725h1.8268" opacity=".25"/>
+  <rect x="109.6" y="255.05" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
+  <path d="m108.62 282.2h6.7174c1.2035 0 2.172-1.0734 2.172-2.4066v-7.8869c0-1.3332-0.9685-2.4066-2.172-2.4066h-6.7174" opacity=".25"/>
+  <rect x="124.03" y="259.92" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
+  <rect x="119.19" y="274.42" width="12.7" height="12.7" rx="2.1723" ry="2.4065" opacity=".25"/>
+  <path d="m128.76 254.16v1.8268c0 1.3332 0.96903 2.4066 2.1725 2.4066h8.355c1.2034 0 2.1725-1.0733 2.1725-2.4066v-1.8268" opacity=".25"/>
+  <path d="m142.48 264.52h-1.8268c-1.3332 0-2.4066 0.96902-2.4066 2.1725v8.355c0 1.2034 1.0733 2.1725 2.4066 2.1725h1.8268" opacity=".25"/>
  </g>
- <g transform="translate(243.62 -102.85)" fill="#808080">
+ <g transform="translate(98.38 -54.492)" fill="#808080">
   <path d="m43.79 333.3h-6.7174c-1.2035 0-2.172 1.0734-2.172 2.4066v6.3614" opacity=".25" stroke="#000" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.0583"/>
   <path d="m34.9 342.07 9.2804 2.1e-4 -0.39106-8.7681z" opacity=".25" style="font-variation-settings:normal"/>
  </g>
@@ -376,25 +378,15 @@
    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">b</tspan></text>
   </a>
  </g>
+ <g transform="translate(-2.888 -55.657)" fill="#f00">
+  <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5-5&amp;headside=-,c&amp;shiftColsSW=-3&amp;shiftRowsSW=1&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;g1=ctc&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt"/>
+ </g>
+ <g transform="translate(-13.691 -5.3106)" fill="#f00">
+  <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#f00" xlink:href="https://d-bl.github.io/GroundForge/stitches.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5,-,5,-,5&amp;headside=-,c&amp;shiftColsSW=-1&amp;shiftRowsSW=5&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt&amp;e3=ctc&amp;e5=cc">
+   <text x="24.575508" y="153.90761" fill="#ff0000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
+  </a>
+ </g>
  <g fill="#f00">
-  <g transform="translate(-2.888 -55.657)">
-   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5-5&amp;headside=-,c&amp;shiftColsSW=-3&amp;shiftRowsSW=1&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;g1=ctc&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt"/>
-  </g>
-  <g transform="translate(-13.691 -5.3106)">
-   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#f00" xlink:href="https://d-bl.github.io/GroundForge/stitches.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5,-,5,-,5&amp;headside=-,c&amp;shiftColsSW=-1&amp;shiftRowsSW=5&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt&amp;e3=ctc&amp;e5=cc">
-    <text x="24.575508" y="153.90761" fill="#ff0000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
-   </a>
-  </g>
-  <g transform="translate(34.399 -5.1127)">
-   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5&amp;headside=c,-&amp;shiftColsSW=-1&amp;shiftRowsSW=3&amp;shiftColsSE=2&amp;shiftRowsSE=0&amp;l1=ctcrr&amp;f1=clc&amp;d1=ctcll&amp;e2=ctc&amp;f3=crc">
-    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
-   </a>
-  </g>
-  <g transform="translate(177.99 42.948)">
-   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-,5-5,-5-&amp;headside=c,-&amp;shiftColsSW=-2&amp;shiftRowsSW=2&amp;shiftColsSE=1&amp;shiftRowsSE=3&amp;l1=ctctt&amp;f1=ct&amp;d1=ctctt&amp;g2=crc&amp;e2=clc&amp;f3=cctc">
-    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">b</tspan></text>
-   </a>
-  </g>
   <g transform="translate(34.474 42.888)">
    <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5,5-&amp;headside=c,-&amp;shiftColsSW=0&amp;shiftRowsSW=4&amp;shiftColsSE=2&amp;shiftRowsSE=4&amp;l1=ctcrr&amp;f1=cctc&amp;d1=ctcll&amp;e2=crc&amp;f3=clc&amp;e4=ctcc">
     <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
@@ -405,14 +397,28 @@
     <text y="155.06731" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="22.76034" y="155.06731" fill="#000000" stroke-width=".565">H</tspan></text>
    </a>
   </g>
+ </g>
+ <g fill="#f00">
+  <g transform="translate(177.99 42.948)">
+   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-,5-5,-5-&amp;headside=c,-&amp;shiftColsSW=-2&amp;shiftRowsSW=2&amp;shiftColsSE=1&amp;shiftRowsSE=3&amp;l1=ctctt&amp;f1=ct&amp;d1=ctctt&amp;g2=crc&amp;e2=clc&amp;f3=cctc">
+    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">b</tspan></text>
+   </a>
+  </g>
   <g transform="translate(189.37 42.948)">
    <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-,5-5,-5-&amp;headside=c,-&amp;shiftColsSW=-1&amp;shiftRowsSW=3&amp;shiftColsSE=2&amp;shiftRowsSE=2&amp;l1=ctctt&amp;f1=ct&amp;d1=ctctt&amp;g2=crc&amp;e2=clc&amp;f3=cctc">
     <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">d</tspan></text>
    </a>
   </g>
-  <g transform="translate(-15.292 42.707)">
-   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#f00" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5,-,5,-,5,-,5&amp;headside=-,c&amp;shiftColsSW=-1&amp;shiftRowsSW=7&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt&amp;e3=ctc&amp;e5=clc&amp;e7=crc">
-    <text x="24.575508" y="153.90761" fill="#ff0000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
+ </g>
+ <g transform="translate(-15.292 42.707)" fill="#f00">
+  <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#f00" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5,-,5,-,5,-,5&amp;headside=-,c&amp;shiftColsSW=-1&amp;shiftRowsSW=7&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt&amp;e3=ctc&amp;e5=clc&amp;e7=crc">
+   <text x="24.575508" y="153.90761" fill="#ff0000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
+  </a>
+ </g>
+ <g fill="#f00">
+  <g transform="translate(34.399 -5.1127)">
+   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5&amp;headside=c,-&amp;shiftColsSW=-1&amp;shiftRowsSW=3&amp;shiftColsSE=2&amp;shiftRowsSE=0&amp;l1=ctcrr&amp;f1=clc&amp;d1=ctcll&amp;e2=ctc&amp;f3=crc">
+    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
    </a>
   </g>
   <g transform="translate(46.569 -5.1127)">
@@ -515,15 +521,17 @@
   <path d="m381.85 508.93 3e-3 -14.608h-1.4423c-1.3641 0-2.4811 1.0117-2.4619 2.2686l0.18877 12.339" fill="#808080" opacity=".25" stop-color="#000000" style="-inkscape-stroke:none;font-variation-settings:normal"/>
   <path transform="translate(-.00097281 .0037092)" d="m378.14 508.73c-0.0716-4.776-0.14326-9.552 0.47583-11.953 0.6191-2.4006 1.9288-2.4259 3.2386-2.4512" fill="none" opacity=".25" stroke="#000" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.0583" style="-inkscape-stroke:none;font-variation-settings:normal"/>
  </g>
- <g transform="translate(80.297 42.807)" fill="#f00">
-  <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5,5-&amp;headside=c,-&amp;shiftColsSW=0&amp;shiftRowsSW=4&amp;shiftColsSE=2&amp;shiftRowsSE=2&amp;l1=ctcrr&amp;f1=ctcc&amp;d1=ctcll&amp;e2=clc&amp;f3=cctc&amp;e4=crc">
-   <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
-  </a>
- </g>
- <g transform="translate(96.2 40.488)" fill="#f00">
-  <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-5,5-5-&amp;headside=c,-&amp;shiftColsSW=-2&amp;shiftRowsSW=2&amp;shiftColsSE=2&amp;shiftRowsSE=2&amp;l1=ctcrr&amp;h1=cctc&amp;f1=ctc&amp;d1=ctcll&amp;g2=clc&amp;e2=ctcc">
-   <text y="155.06731" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="22.76034" y="155.06731" fill="#000000" stroke-width=".565">H</tspan></text>
-  </a>
+ <g fill="#f00">
+  <g transform="translate(80.297 42.807)">
+   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5,5-,-5,5-&amp;headside=c,-&amp;shiftColsSW=0&amp;shiftRowsSW=4&amp;shiftColsSE=2&amp;shiftRowsSE=2&amp;l1=ctcrr&amp;f1=ctcc&amp;d1=ctcll&amp;e2=clc&amp;f3=cctc&amp;e4=crc">
+    <text x="24.575508" y="153.90761" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="24.575508" y="153.90761" fill="#000000" stroke-width=".565">V</tspan></text>
+   </a>
+  </g>
+  <g transform="translate(96.2 40.488)">
+   <a transform="matrix(2 0 0 2 -14.482 -147.56)" fill="#000" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=---b,----&amp;tile=-5-5,5-5-&amp;headside=c,-&amp;shiftColsSW=-2&amp;shiftRowsSW=2&amp;shiftColsSE=2&amp;shiftRowsSE=2&amp;l1=ctcrr&amp;h1=cctc&amp;f1=ctc&amp;d1=ctcll&amp;g2=clc&amp;e2=ctcc">
+    <text y="155.06731" fill="#000000" fill-opacity=".99854" font-size="2.1167px" stroke-linecap="square" stroke-width=".565" xml:space="preserve"><tspan x="22.76034" y="155.06731" fill="#000000" stroke-width=".565">H</tspan></text>
+   </a>
+  </g>
  </g>
  <g transform="translate(-.85592 -96.184)">
   <a transform="matrix(2 0 0 2 -26.653 -105.22)" xlink:href="https://d-bl.github.io/GroundForge/pattern.html?patchWidth=7&amp;patchHeight=8&amp;footside=----,---b&amp;tile=5,-,5&amp;headside=-,c&amp;shiftColsSW=-1&amp;shiftRowsSW=3&amp;shiftColsSE=1&amp;shiftRowsSE=1&amp;e1=ct&amp;l2=ctctt&amp;d2=ctctt&amp;e3=ctc">
