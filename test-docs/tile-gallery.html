@@ -18,6 +18,8 @@
 </head>
 <body>
 <script type="text/javascript" src="../docs/tileGallery/tile-gallery.js"></script>
+<script> GF_tiles.load(document.getElementById('main-content')); </script>
+<div id="previews"> </div>
 <script>
     GF_tiles.content_home = window.location.origin.startsWith('http')
         ? window.location.origin + '/GroundForge/docs'
