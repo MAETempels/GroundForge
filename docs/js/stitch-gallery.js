@@ -147,10 +147,14 @@ const GF_stitches = {
 }
 
 const GF_Random = {
+    stitchArray: [],
 
     genRandomStitchList(pS, pC, pTC, pTB, pTA) {
-        let stitchArray = [];
+        //let stitchArray = [];
         let stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter;
+
+        // clear previous run
+        GF_Random.stitchArray = [];
 
         // The function can be called with or without attributes.
         // without Number(), document.value is a string. With unexpected results in function genTwists.
@@ -195,10 +199,12 @@ const GF_Random = {
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
-            stitchArray += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
+            GF_Random.stitchArray += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
         }
 
-        return stitchArray;
+        GF_Random.displayRandomStitch();
+
+        return GF_Random.stitchArray;
     },
 
     genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
@@ -338,4 +344,16 @@ const GF_Random = {
 
         return vId;
     },
-}
+
+    displayRandomStitch() {
+
+        // todo: clear previous outcome
+        // todo: remove displayRandomStitch form genRandomStitchList
+        // todo: move outcome one column on page
+
+        let x = document.createElement("div");
+        x.innerHTML = GF_Random.stitchArray;
+        document.body.appendChild(x);
+    },
+
+    }
