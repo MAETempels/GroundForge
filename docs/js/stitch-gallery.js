@@ -149,8 +149,7 @@ const GF_stitches = {
 const GF_Random = {
 
     genRandomStitchList(pS, pC, pTC, pTB, pTA) {
-        //const stitchArray = [];
-        let stitchString = "";
+        let stitchArray = [];
         let stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter;
 
         // The function can be called with or without attributes.
@@ -196,11 +195,10 @@ const GF_Random = {
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
-            //stitchArray += genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
-            stitchString += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
+            stitchArray += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
         }
-        // returning array gives warning about type in getElementById
-        return stitchString;
+
+        return stitchArray;
     },
 
     genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
