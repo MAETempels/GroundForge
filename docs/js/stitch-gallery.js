@@ -199,10 +199,8 @@ const GF_Random = {
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
-            GF_Random.stitchArray += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
+            GF_Random.stitchArray += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "  ";
         }
-
-        GF_Random.displayRandomStitch();
 
         return GF_Random.stitchArray;
     },
@@ -345,15 +343,19 @@ const GF_Random = {
         return vId;
     },
 
-    displayRandomStitch() {
+    displayRandomStitch(dS, dC, dTC, dTB, dTA) {
 
         // todo: clear previous outcome
         // todo: remove displayRandomStitch form genRandomStitchList
         // todo: move outcome one column on page
 
+        GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
+
         let x = document.createElement("div");
         x.innerHTML = GF_Random.stitchArray;
         document.body.appendChild(x);
+
+        return GF_Random.stitchArray;
     },
 
     }
