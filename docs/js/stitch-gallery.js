@@ -199,7 +199,7 @@ const GF_Random = {
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
-            GF_Random.stitchArray += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "  ";
+            GF_Random.stitchArray.push(GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "  ")
         }
 
         return GF_Random.stitchArray;
@@ -343,17 +343,45 @@ const GF_Random = {
         return vId;
     },
 
+    // I want to keep genRandomStitchList and genRandomStitch as flexible as is. Therefor, construct as below.
+    // Since genRandomStitch is used on several places, we can't add display-functionality there.
     displayRandomStitch(dS, dC, dTC, dTB, dTA) {
 
         // todo: clear previous outcome
-        // todo: remove displayRandomStitch form genRandomStitchList
-        // todo: move outcome one column on page
+         // todo: move outcome one column on page
+
+        let displayStitch;
+        let threadSvg, figcaption, figure;
+        let SA, SP;
 
         GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
 
-        let x = document.createElement("div");
-        x.innerHTML = GF_Random.stitchArray;
-        document.body.appendChild(x);
+        for (let i = 0; i < GF_Random.stitchArray.length; i++) {
+
+            displayStitch = GF_Random.stitchArray[i];
+            displayStitch = displayStitch.trim();       // also done in function newStitch
+
+            threadSvg = GF_svgP2T.newSVG(80, 120);
+            // store returnvalue (currentNodeNr) ??
+            GF_svgP2T.newStitch(displayStitch.toLowerCase(), 0, 0, threadSvg, 80, 120);
+
+            // use element SP instead of element colorCodeSvg
+            SP = document.createElement("SP");
+            figcaption = document.createElement("figcaption");
+            figcaption.append(SP, document.createTextNode(displayStitch));
+
+            figure = document.createElement("figure");
+            figure.append(threadSvg, figcaption);
+
+            GF_svgP2T.addThreadClasses(threadSvg);
+            document.body.appendChild(figure);
+
+           // SA = document.createElement("SA");
+            //SA.innerHTML = displayStitch + "<br>";
+            //document.body.appendChild(figure);
+            //document.body.appendChild(SA);
+
+        }
 
         return GF_Random.stitchArray;
     },
