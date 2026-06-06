@@ -354,7 +354,7 @@ const GF_Random = {
         let displayStitch;
         let displayElement;
 
-        displayElement = document.getElementById("displayArray");
+        displayElement = document.getElementById("displayRandomArray");
         displayElement.innerHTML = "";
 
         GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
@@ -371,7 +371,7 @@ const GF_Random = {
             displayElement.innerHTML += displayStitch + "<br>";
 
         }
-        document.body.appendChild(displayElement);
+        //document.body.appendChild(displayElement);   // is placed AFTER </main>. We can do without. Left here for learning.
         return GF_Random.stitchArray;
     },
 
