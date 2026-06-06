@@ -38,7 +38,7 @@ E.g. ctcT. The generated stitch can have 0 twists at the end, e.g. "ctc".
 Use 0 if no twists at the end of a stitch are required.         
 
 
-<button class="button" type="button" onclick="document.getElementById('setRandomList').innerHTML = GF_Random.displayRandomStitch()">
+<button class="button" type="button" onclick="document.getElementById('setRandomList').innerHTML = GF_Random.genRandomStitchList(); GF_Random.displayRandomStitch()">
         Generate list of stitches</button>
 
 <p id="displayRandomArray"></p>

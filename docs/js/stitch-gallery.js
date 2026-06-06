@@ -343,21 +343,16 @@ const GF_Random = {
         return vId;
     },
 
-    // I want to keep genRandomStitchList and genRandomStitch as flexible as is. Therefor, construct as below.
-    // Since genRandomStitch is used on several places, we can't add display-functionality there.
     // Why this display-function, as <p setRandomList> also displays stitchArray = genRandomStitchList?
     // We want to add the colorcode and the threaddiagram to the list. See p2t.newlegendStitch.
-    displayRandomStitch(dS, dC, dTC, dTB, dTA) {
-
-         // todo: move outcome one column on page
+    displayRandomStitch() {
 
         let displayStitch;
         let displayElement;
 
+        // we can not use setRandomList from the button here.
         displayElement = document.getElementById("displayRandomArray");
         displayElement.innerHTML = "";
-
-        GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
 
         for (let i = 0; i < GF_Random.stitchArray.length; i++) {
 
@@ -372,7 +367,7 @@ const GF_Random = {
 
         }
         //document.body.appendChild(displayElement);   // is placed AFTER </main>. We can do without. Left here for learning.
-        return GF_Random.stitchArray;
+        return;
     },
 
     }
