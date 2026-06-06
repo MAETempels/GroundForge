@@ -347,26 +347,27 @@ const GF_Random = {
     // Since genRandomStitch is used on several places, we can't add display-functionality there.
     displayRandomStitch(dS, dC, dTC, dTB, dTA) {
 
-        // todo: clear previous outcome
          // todo: move outcome one column on page
 
         let displayStitch;
-        let colorCodeElement;
+        let displayElement;
+
+        displayElement = document.getElementById("displayArray");
+        displayElement.innerHTML = "";
 
         GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
 
         for (let i = 0; i < GF_Random.stitchArray.length; i++) {
 
-            displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
+            //displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
+            //colorCodeElement= document.createElement("colorCodeElement");
+            //GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
 
-            colorCodeElement= document.createElement("colorCodeElement");
+            // version for self, learning
+            displayStitch = GF_Random.stitchArray[i];
 
-            GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
-
-            // simpel working version, keep for now
-            //SA = document.createElement("SA");
-            //SA.innerHTML = displayStitch + "<br>";
-            //document.body.appendChild(SA);
+            displayElement.innerHTML += displayStitch + "<br>";
+            document.body.appendChild(displayElement);
 
         }
 
