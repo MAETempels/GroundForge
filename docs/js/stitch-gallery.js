@@ -351,34 +351,21 @@ const GF_Random = {
          // todo: move outcome one column on page
 
         let displayStitch;
-        let threadSvg, figcaption, figure;
-        let SA, SP;
+        let colorCodeElement;
 
         GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
 
         for (let i = 0; i < GF_Random.stitchArray.length; i++) {
 
-            displayStitch = GF_Random.stitchArray[i];
-            displayStitch = displayStitch.trim();       // also done in function newStitch
+            displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
 
-            threadSvg = GF_svgP2T.newSVG(80, 120);
-            // store returnvalue (currentNodeNr) ??
-            GF_svgP2T.newStitch(displayStitch.toLowerCase(), 0, 0, threadSvg, 80, 120);
+            colorCodeElement= document.createElement("colorCodeElement");
 
-            // use element SP instead of element colorCodeSvg
-            SP = document.createElement("SP");
-            figcaption = document.createElement("figcaption");
-            figcaption.append(SP, document.createTextNode(displayStitch));
+            GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
 
-            figure = document.createElement("figure");
-            figure.append(threadSvg, figcaption);
-
-            GF_svgP2T.addThreadClasses(threadSvg);
-            document.body.appendChild(figure);
-
-           // SA = document.createElement("SA");
+            // simpel working version, keep for now
+            //SA = document.createElement("SA");
             //SA.innerHTML = displayStitch + "<br>";
-            //document.body.appendChild(figure);
             //document.body.appendChild(SA);
 
         }
