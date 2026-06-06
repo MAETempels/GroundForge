@@ -354,7 +354,7 @@ const GF_Random = {
         displayElement = document.getElementById("displayRandomArray");
         displayElement.innerHTML = "";
 
-        //GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
+        GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
 
         for (let i = 0; i < GF_Random.stitchArray.length; i++) {
 
