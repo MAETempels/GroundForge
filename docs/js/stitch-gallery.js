@@ -149,46 +149,10 @@ const GF_stitches = {
 const GF_Random = {
     stitchArray: [],
 
-    genRandomStitchList(pS, pC, pTC, pTB, pTA) {
-        //let stitchArray = [];
-        let stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter;
+    genRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
 
         // clear previous run
         GF_Random.stitchArray = [];
-
-        // The function can be called with or without attributes.
-        // without Number(), document.value is a string. With unexpected results in function genTwists.
-
-        // number of stitches
-        if (pS === undefined) {
-            stitchesRequired = Number(document.getElementById("stitchesRequired").value);
-        } else {
-            stitchesRequired = pS;
-        }
-        // maximum number of crosses
-        if (pC === undefined) {
-            maxCrosses = Number(document.getElementById("maxCrosses").value);
-        } else {
-            maxCrosses = pC;
-        }
-        // maximum number of twists between two crosses
-        if (pTC === undefined) {
-            maxTwistsBetweenCrosses = Number(document.getElementById("maxTwistsBetweenCrosses").value);
-        } else {
-            maxTwistsBetweenCrosses = pTC;
-        }
-        // maximum number of twists before stitch
-        if (pTB === undefined) {
-            maxTwistsBefore = Number(document.getElementById("maxTwistsBefore").value);
-        } else {
-            maxTwistsBefore = pTB;
-        }
-        // maximum number of twists after stitch
-        if (pTA === undefined) {
-            maxTwistsAfter = Number(document.getElementById("maxTwistsAfter").value);
-        } else {
-            maxTwistsAfter = pTA;
-        }
 
         // validate input - needed if called with arguments.
         if (stitchesRequired < 1) {
@@ -346,15 +310,13 @@ const GF_Random = {
     // I want to keep genRandomStitchList and genRandomStitch as flexible as is. Therefor, construct as below.
     // Why this display-function, as <p setRandomList> also displays stitchArray = genRandomStitchList?
     // We want to add the colorcode and the threaddiagram to the list. See p2t.newlegendStitch.
-    displayRandomStitch(dS, dC, dTC, dTB, dTA) {
+    displayRandomStitchList() {
 
         let displayStitch;
         let displayElement;
 
         displayElement = document.getElementById("displayRandomArray");
         displayElement.innerHTML = "";
-
-        GF_Random.genRandomStitchList(dS, dC, dTC, dTB, dTA);
 
         for (let i = 0; i < GF_Random.stitchArray.length; i++) {
 
@@ -369,7 +331,42 @@ const GF_Random = {
 
         }
         //document.body.appendChild(displayElement);   // is placed AFTER </main>. We can do without. Left here for learning.
-        return GF_Random.stitchArray;
+        return ;
     },
 
-    }
+    makeRandomStitchList(pS, pC, pTC, pTB, pTA) {
+
+        // The function can be called with or without attributes.
+        // without Number(), document.value is a string. With unexpected results in function genTwists.
+
+        // number of stitches
+        if (pS === undefined) {
+            pS = Number(document.getElementById("stitchesRequired").value);
+        }
+        // maximum number of crosses
+        if (pC === undefined) {
+            pC = Number(document.getElementById("maxCrosses").value);
+        }
+        // maximum number of twists between two crosses
+        if (pTC === undefined) {
+            pTC = Number(document.getElementById("maxTwistsBetweenCrosses").value);
+        }
+        // maximum number of twists before stitch
+        if (pTB === undefined) {
+            pTB = Number(document.getElementById("maxTwistsBefore").value);
+        }
+        // maximum number of twists after stitch
+        if (pTA === undefined) {
+            pTA = Number(document.getElementById("maxTwistsAfter").value);
+        }
+
+        GF_Random.genRandomStitchList(pS, pC, pTC, pTB, pTA);
+        GF_Random.displayRandomStitchList();
+
+        return GF_Random.stitchArray;
+    },
+}
+
+
+
+

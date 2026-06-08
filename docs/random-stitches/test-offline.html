@@ -67,13 +67,14 @@
 
         <div>
             <br>
-            <a id="slag0" class="button" type="button" href="javascript:GF_Random.genRandomStitchList()">Generate list of stitches on a new page</a>
-
-            <button class="button" type="button" onclick="document.getElementById('random1').innerHTML = GF_Random.displayRandomStitch()">
-                Generate list of stitches
+            <button class="button" type="button" onclick="document.getElementById('random0').innerHTML = GF_Random.genRandomStitchList(2,2,2,2,2)">
+                Generate 2 stitches
             </button>
-            <button class="button" type="button" onclick="document.getElementById('random2').innerHTML = GF_Random.displayRandomStitch(3,2,1,0,2)">
-                Generate 3 stitches with fixed attributes
+            <button class="button" type="button" onclick="document.getElementById('random1').innerHTML = GF_Random.makeRandomStitchList()">
+                Generate &AMP; display list of stitches
+            </button>
+            <button class="button" type="button" onclick="document.getElementById('random2').innerHTML = GF_Random.makeRandomStitchList(3,2,1,0,2)">
+                Generate &AMP; display 3 stitches with fixed attributes
             </button>
             <button class="button" type="button" onclick="document.getElementById('random3').innerHTML = GF_Random.genRandomStitch(3,1,0,2)">
                 Generate one stitch with fixed attributes
@@ -81,6 +82,7 @@
             <br><br>
         </div>
 
+        <p id="random0"></p>
         <p id="random1"></p>
         <p id="random2"></p>
         <p id="random3"></p>
