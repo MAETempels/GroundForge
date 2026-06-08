@@ -314,6 +314,8 @@ const GF_Random = {
 
         let displayStitch;
         let displayElement;
+        let colorCodeElement;
+        let threadSvg, colorCodeSvg, figcaption, figure;
 
         displayElement = document.getElementById("displayRandomArray");
         displayElement.innerHTML = "";
@@ -321,10 +323,33 @@ const GF_Random = {
         for (let i = 0; i < GF_Random.stitchArray.length; i++) {
 
             displayStitch = GF_Random.stitchArray[i];
-            //displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
 
-            //colorCodeElement= document.createElement("colorCodeElement");
-            //GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
+            //// prepare for functions from GF_svgP2T
+            //displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
+            //// colorCodeElement is a picture from an array
+            //// TODO: find colorCodeElement
+            //colorCodeElement = document.createElement("colorCodeElement");
+
+            ////GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
+            //// copy from newLegendStitch, as "document.body.appendChild(figure) does not clean up previous result, and picts to large
+            //threadSvg = GF_svgP2T.newSVG(40,60);
+            //GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
+
+            //colorCodeSvg = GF_svgP2T.newSVG(27,35);
+            //colorCodeElement.setAttribute("transform", "translate(13,17) scale(3)");
+            //colorCodeSvg.appendChild(colorCodeElement);
+
+            //figcaption = document.createElement("figcaption");
+            //figcaption.append(colorCodeSvg, document.createTextNode(displayStitch.replace(/[^ctlr]/gi, '')));
+
+            //figure = document.createElement("figure");
+            //figure.append(threadSvg, figcaption);
+            ////GF_svgP2T.addThreadClasses(threadSvg);    // not needed
+
+            //// todo: clear previous result
+            //document.body.appendChild(figure);   // this function does not clear previous result
+
+            //displayElement.innerHTML += figure; // doesn't work
 
             // version for self, learning
             displayElement.innerHTML += displayStitch + "<br>";

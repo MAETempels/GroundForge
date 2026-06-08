@@ -37,7 +37,7 @@ The maximal number of twists at the end of the stitch. Minimal 0, maximal 5.
 E.g. ctcT. The generated stitch can have 0 twists at the end, e.g. "ctc".    
 Use 0 if no twists at the end of a stitch are required.      
 
-Legend: C = cross (2 over 3) L = twist left pair (2 over 1); R = twist right pair (4 over 3); T = twist both pairs.     
+Legend: **C** = cross (2 over 3); **L** = twist left pair (2 over 1); **R** = twist right pair (4 over 3); **T** = twist both pairs.     
 
 
 <button class="button" type="button" onclick="document.getElementById('setRandomList').innerHTML = GF_Random.makeRandomStitchList()">
