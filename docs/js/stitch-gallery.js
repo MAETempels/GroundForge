@@ -325,13 +325,14 @@ const GF_Random = {
             displayStitch = GF_Random.stitchArray[i];
 
             //// prepare for functions from GF_svgP2T
-            displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
+            displayStitch = GF_Random.stitchArray[i]
             //// colorCodeElement is a picture from an array
             //// TODO: find colorCodeElement
             //colorCodeElement = document.createElement("colorCodeElement");
 
             ////GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
             //// copy from newLegendStitch, as "document.body.appendChild(figure) does not clean up previous result, and picts to large
+            //// tolowercase is done in newStitch
             threadSvg = GF_svgP2T.newSVG(40,60);
             GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
 
@@ -343,22 +344,21 @@ const GF_Random = {
             //figcaption.append(colorCodeSvg, document.createTextNode(displayStitch.replace(/[^ctlr]/gi, '')));
 
             figure = document.createElement("figure");
-            //figure.append(threadSvg, figcaption);
-            figure.append(threadSvg, displayStitch);      // this shows the stitchword
+            figure.append(threadSvg);
+            //figure.append(threadSvg, displayStitch);      // this shows the stitch-word
             ////GF_svgP2T.addThreadClasses(threadSvg);    // not needed
 
-            //// todo: clear previous result
-            document.body.appendChild(figure);   // this function does not clear previous result
-
-            //displayElement.innerHTML += figure; // doesn't work
+            displayElement.appendChild(figure);
 
             // version for self, learning
-            //displayElement.innerHTML += displayStitch + "<br>";
+            displayElement.innerHTML += displayStitch + "<br>";
 
         }
         //document.body.appendChild(displayElement);   // is placed AFTER </main>. We can do without. Left here for learning.
+        //displayElement.insertAdjacentElement("beforeend", span);   // not needed
         return ;
     },
+
 
     makeRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
         // The function can be called with or without attributes.
