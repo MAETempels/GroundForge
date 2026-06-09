@@ -154,16 +154,16 @@ const GF_Random = {
         // clear previous run
         GF_Random.stitchArray = [];
 
-        // validate input - needed if called with arguments.
+        // Validate input - needed if called with arguments. Can be higher than user-input.
         if (stitchesRequired < 1) {
             stitchesRequired = 1;
         }
-        if (stitchesRequired > 25) {
-            stitchesRequired = 25;
+        if (stitchesRequired > 50) {
+            stitchesRequired = 50;
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
-            GF_Random.stitchArray.push(GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "  ")
+            GF_Random.stitchArray.push(GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter))
         }
 
         return GF_Random.stitchArray;
@@ -173,30 +173,30 @@ const GF_Random = {
         // define & initialize variables
         let stitch = "";
 
-        // validate input - needed if called with arguments.
+        // Validate input - needed if called with arguments. Can be higher than user-input.
         if (maxCrosses < 1) {
             maxCrosses = 1;
         }
-        if (maxCrosses > 5) {
-            maxCrosses = 5;
+        if (maxCrosses > 10) {
+            maxCrosses = 10;
         }
         if (maxTwistsBetweenCrosses < 1) {
             maxTwistsBetweenCrosses = 1;
         }
-        if (maxTwistsBetweenCrosses > 5) {
-            maxTwistsBetweenCrosses = 5;
+        if (maxTwistsBetweenCrosses > 10) {
+            maxTwistsBetweenCrosses = 10;
         }
         if (maxTwistsBefore < 0) {
             maxTwistsBefore = 0;
         }
-        if (maxTwistsBefore > 5) {
-            maxTwistsBefore = 5;
+        if (maxTwistsBefore > 10) {
+            maxTwistsBefore = 10;
         }
         if (maxTwistsAfter < 0) {
             maxTwistsAfter = 0;
         }
-        if (maxTwistsAfter > 5) {
-            maxTwistsAfter = 5;
+        if (maxTwistsAfter > 10) {
+            maxTwistsAfter = 10;
         }
 
         // how many crosses, minimal 1 cross, therefor add 1 to random integer
@@ -325,15 +325,15 @@ const GF_Random = {
             displayStitch = GF_Random.stitchArray[i];
 
             //// prepare for functions from GF_svgP2T
-            //displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
+            displayStitch = GF_Random.stitchArray[i].trim().toLowerCase();           // also done in function newStitch
             //// colorCodeElement is a picture from an array
             //// TODO: find colorCodeElement
             //colorCodeElement = document.createElement("colorCodeElement");
 
             ////GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
             //// copy from newLegendStitch, as "document.body.appendChild(figure) does not clean up previous result, and picts to large
-            //threadSvg = GF_svgP2T.newSVG(40,60);
-            //GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
+            threadSvg = GF_svgP2T.newSVG(40,60);
+            GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
 
             //colorCodeSvg = GF_svgP2T.newSVG(27,35);
             //colorCodeElement.setAttribute("transform", "translate(13,17) scale(3)");
@@ -342,17 +342,18 @@ const GF_Random = {
             //figcaption = document.createElement("figcaption");
             //figcaption.append(colorCodeSvg, document.createTextNode(displayStitch.replace(/[^ctlr]/gi, '')));
 
-            //figure = document.createElement("figure");
+            figure = document.createElement("figure");
             //figure.append(threadSvg, figcaption);
+            figure.append(threadSvg, displayStitch);      // this shows the stitchword
             ////GF_svgP2T.addThreadClasses(threadSvg);    // not needed
 
             //// todo: clear previous result
-            //document.body.appendChild(figure);   // this function does not clear previous result
+            document.body.appendChild(figure);   // this function does not clear previous result
 
             //displayElement.innerHTML += figure; // doesn't work
 
             // version for self, learning
-            displayElement.innerHTML += displayStitch + "<br>";
+            //displayElement.innerHTML += displayStitch + "<br>";
 
         }
         //document.body.appendChild(displayElement);   // is placed AFTER </main>. We can do without. Left here for learning.
