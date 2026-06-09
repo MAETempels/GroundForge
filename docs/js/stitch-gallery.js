@@ -359,33 +359,32 @@ const GF_Random = {
         return ;
     },
 
-    makeRandomStitchList(pS, pC, pTC, pTB, pTA) {
-
+    makeRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
         // The function can be called with or without attributes.
         // without Number(), document.value is a string. With unexpected results in function genTwists.
 
         // number of stitches
-        if (pS === undefined) {
-            pS = Number(document.getElementById("stitchesRequired").value);
+        if (stitchesRequired === undefined) {
+            stitchesRequired = Number(document.getElementById("stitchesRequired").value);
         }
         // maximum number of crosses
-        if (pC === undefined) {
-            pC = Number(document.getElementById("maxCrosses").value);
+        if (maxCrosses === undefined) {
+            maxCrosses = Number(document.getElementById("maxCrosses").value);
         }
         // maximum number of twists between two crosses
-        if (pTC === undefined) {
-            pTC = Number(document.getElementById("maxTwistsBetweenCrosses").value);
+        if (maxTwistsBetweenCrosses === undefined) {
+            maxTwistsBetweenCrosses = Number(document.getElementById("maxTwistsBetweenCrosses").value);
         }
         // maximum number of twists before stitch
-        if (pTB === undefined) {
-            pTB = Number(document.getElementById("maxTwistsBefore").value);
+        if (maxTwistsBefore === undefined) {
+            maxTwistsBefore = Number(document.getElementById("maxTwistsBefore").value);
         }
         // maximum number of twists after stitch
-        if (pTA === undefined) {
-            pTA = Number(document.getElementById("maxTwistsAfter").value);
+        if (maxTwistsAfter === undefined) {
+            maxTwistsAfter = Number(document.getElementById("maxTwistsAfter").value);
         }
 
-        GF_Random.genRandomStitchList(pS, pC, pTC, pTB, pTA);
+        GF_Random.genRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter);
         GF_Random.displayRandomStitchList();
 
         return GF_Random.stitchArray;
