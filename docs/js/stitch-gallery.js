@@ -346,7 +346,7 @@ const GF_Random = {
             figure = document.createElement("figure");
             figure.append(threadSvg);
             //figure.append(threadSvg, displayStitch);      // this shows the stitch-word
-            ////GF_svgP2T.addThreadClasses(threadSvg);      // not needed
+            GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
 
             displayElement.appendChild(figure);
 
