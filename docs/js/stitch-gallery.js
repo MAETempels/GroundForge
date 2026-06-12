@@ -148,6 +148,8 @@ const GF_stitches = {
 
 const GF_Random = {
     stitchArray: [],
+    max_L: 40, max_C: 8, max_TBA: 8, max_TC: 8,
+    min_L: 1, min_C: 1, min_TBA: 0, min_TC: 1,
 
     genRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
 
@@ -155,11 +157,11 @@ const GF_Random = {
         GF_Random.stitchArray = [];
 
         // Validate input - needed if called with arguments. Can be higher than user-input.
-        if (stitchesRequired < 1) {
-            stitchesRequired = 1;
+        if (stitchesRequired < GF_Random.min_L) {
+            stitchesRequired = GF_Random.min_L;
         }
-        if (stitchesRequired > 50) {
-            stitchesRequired = 50;
+        if (stitchesRequired > GF_Random.max_L) {
+            stitchesRequired = GF_Random.max_L;
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
@@ -174,29 +176,29 @@ const GF_Random = {
         let stitch = "";
 
         // Validate input - needed if called with arguments. Can be higher than user-input.
-        if (maxCrosses < 1) {
-            maxCrosses = 1;
+        if (maxCrosses < GF_Random.min_C) {
+            maxCrosses = GF_Random.min_C;
         }
-        if (maxCrosses > 10) {
-            maxCrosses = 10;
+        if (maxCrosses > GF_Random.max_C) {
+            maxCrosses = GF_Random.max_C;
         }
-        if (maxTwistsBetweenCrosses < 1) {
-            maxTwistsBetweenCrosses = 1;
+        if (maxTwistsBetweenCrosses < GF_Random.min_TC) {
+            maxTwistsBetweenCrosses = GF_Random.min_TC;
         }
-        if (maxTwistsBetweenCrosses > 10) {
-            maxTwistsBetweenCrosses = 10;
+        if (maxTwistsBetweenCrosses > GF_Random.max_TC) {
+            maxTwistsBetweenCrosses = GF_Random.max_TC;
         }
-        if (maxTwistsBefore < 0) {
-            maxTwistsBefore = 0;
+        if (maxTwistsBefore < GF_Random.min_TBA) {
+            maxTwistsBefore = GF_Random.min_TBA;
         }
-        if (maxTwistsBefore > 10) {
-            maxTwistsBefore = 10;
+        if (maxTwistsBefore > GF_Random.max_TBA) {
+            maxTwistsBefore = GF_Random.max_TBA;
         }
-        if (maxTwistsAfter < 0) {
-            maxTwistsAfter = 0;
+        if (maxTwistsAfter < GF_Random.min_TBA) {
+            maxTwistsAfter = GF_Random.min_TBA;
         }
-        if (maxTwistsAfter > 10) {
-            maxTwistsAfter = 10;
+        if (maxTwistsAfter > GF_Random.max_TBA) {
+            maxTwistsAfter = GF_Random.max_TBA;
         }
 
         // how many crosses, minimal 1 cross, therefor add 1 to random integer
@@ -324,17 +326,17 @@ const GF_Random = {
 
             displayStitch = GF_Random.stitchArray[i];
 
-            //// prepare for functions from GF_svgP2T
-            displayStitch = GF_Random.stitchArray[i]
-            //// colorCodeElement is a picture from an array
-            //// TODO: find colorCodeElement
-            //colorCodeElement = document.createElement("colorCodeElement");
-
             ////GF_svgP2T.newLegendStitch(displayStitch, colorCodeElement);
-            //// copy from newLegendStitch, as "document.body.appendChild(figure) does not clean up previous result, and picts to large
+            //// copied from newLegendStitch, as "document.body.appendChild(figure) does not clean up previous result, and picts to large
             //// tolowercase is done in newStitch
+
             threadSvg = GF_svgP2T.newSVG(40,60);
             GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
+            GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
+
+            //// TODO: find colorCodeElement
+            //// colorCodeElement is a picture from an array
+            //colorCodeElement = document.createElement("colorCodeElement");
 
             //colorCodeSvg = GF_svgP2T.newSVG(27,35);
             //colorCodeElement.setAttribute("transform", "translate(13,17) scale(3)");
@@ -345,17 +347,17 @@ const GF_Random = {
 
             figure = document.createElement("figure");
             figure.append(threadSvg);
-            //figure.append(threadSvg, displayStitch);      // this shows the stitch-word
-            GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
+            //figure.append(threadSvg, figcaption);         // this shows the colorcode element and the stitch-word underneath the thread-diagram
+            //figure.append(threadSvg, displayStitch);      // this shows the stitch-word underneath the thread-diagram (and on the right of the colorcode)
+
+            displayElement.innerHTML += displayStitch;      // instead of appending to figure
 
             displayElement.appendChild(figure);
-
-            // version for self, learning
-            displayElement.innerHTML += displayStitch + "<br>";
+            displayElement.innerHTML += "<br>";
 
         }
-        //document.body.appendChild(displayElement);   // is placed AFTER </main>. We can do without. Left here for learning.
-        //displayElement.insertAdjacentElement("beforeend", span);   // not needed
+        //document.body.appendChild(displayElement);                // is placed AFTER </main>. We can do without. Left here for learning.
+        //displayElement.insertAdjacentElement("beforeend", span);   // not needed, left here for learning
         return ;
     },
 
