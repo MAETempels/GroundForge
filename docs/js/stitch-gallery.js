@@ -147,93 +147,61 @@ const GF_stitches = {
 }
 
 const GF_Random = {
+    stitchArray: [],
+    max_L: 40, max_C: 8, max_TBA: 8, max_TC: 8,
+    min_L: 1, min_C: 1, min_TBA: 0, min_TC: 1,
 
-    genRandomStitchList(pS, pC, pTC, pTB, pTA) {
-        //const stitchArray = [];
-        let stitchString = "";
-        let stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter;
+    genRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
 
-        // The function can be called with or without attributes.
-        // without Number(), document.value is a string. With unexpected results in function genTwists.
+        // clear previous run
+        GF_Random.stitchArray = [];
 
-        // number of stitches
-        if (pS === undefined) {
-            stitchesRequired = Number(document.getElementById("stitchesRequired").value);
-        } else {
-            stitchesRequired = pS;
+        // Validate input - needed if called with arguments. Can be higher than user-input.
+        if (stitchesRequired < GF_Random.min_L) {
+            stitchesRequired = GF_Random.min_L;
         }
-        // maximum number of crosses
-        if (pC === undefined) {
-            maxCrosses = Number(document.getElementById("maxCrosses").value);
-        } else {
-            maxCrosses = pC;
-        }
-        // maximum number of twists between two crosses
-        if (pTC === undefined) {
-            maxTwistsBetweenCrosses = Number(document.getElementById("maxTwistsBetweenCrosses").value);
-        } else {
-            maxTwistsBetweenCrosses = pTC;
-        }
-        // maximum number of twists before stitch
-        if (pTB === undefined) {
-            maxTwistsBefore = Number(document.getElementById("maxTwistsBefore").value);
-        } else {
-            maxTwistsBefore = pTB;
-        }
-        // maximum number of twists after stitch
-        if (pTA === undefined) {
-            maxTwistsAfter = Number(document.getElementById("maxTwistsAfter").value);
-        } else {
-            maxTwistsAfter = pTA;
-        }
-
-        // validate input - needed if called with arguments.
-        if (stitchesRequired < 1) {
-            stitchesRequired = 1;
-        }
-        if (stitchesRequired > 25) {
-            stitchesRequired = 25;
+        if (stitchesRequired > GF_Random.max_L) {
+            stitchesRequired = GF_Random.max_L;
         }
 
         for (let countStitches = 1; countStitches <= stitchesRequired; countStitches++) {
-            //stitchArray += genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
-            stitchString += GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) + "<br>";
+            GF_Random.stitchArray.push(GF_Random.genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter))
         }
-        // returning array gives warning about type in getElementById
-        return stitchString;
+
+        return GF_Random.stitchArray;
     },
 
     genRandomStitch(maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
         // define & initialize variables
         let stitch = "";
 
-        // validate input - needed if called with arguments.
-        if (maxCrosses < 1) {
-            maxCrosses = 1;
+        // Validate input - needed if called with arguments. Can be higher than user-input.
+        if (maxCrosses < GF_Random.min_C) {
+            maxCrosses = GF_Random.min_C;
         }
-        if (maxCrosses > 5) {
-            maxCrosses = 5;
+        if (maxCrosses > GF_Random.max_C) {
+            maxCrosses = GF_Random.max_C;
         }
-        if (maxTwistsBetweenCrosses < 1) {
-            maxTwistsBetweenCrosses = 1;
+        if (maxTwistsBetweenCrosses < GF_Random.min_TC) {
+            maxTwistsBetweenCrosses = GF_Random.min_TC;
         }
-        if (maxTwistsBetweenCrosses > 5) {
-            maxTwistsBetweenCrosses = 5;
+        if (maxTwistsBetweenCrosses > GF_Random.max_TC) {
+            maxTwistsBetweenCrosses = GF_Random.max_TC;
         }
-        if (maxTwistsBefore < 0) {
-            maxTwistsBefore = 0;
+        if (maxTwistsBefore < GF_Random.min_TBA) {
+            maxTwistsBefore = GF_Random.min_TBA;
         }
-        if (maxTwistsBefore > 5) {
-            maxTwistsBefore = 5;
+        if (maxTwistsBefore > GF_Random.max_TBA) {
+            maxTwistsBefore = GF_Random.max_TBA;
         }
-        if (maxTwistsAfter < 0) {
-            maxTwistsAfter = 0;
+        if (maxTwistsAfter < GF_Random.min_TBA) {
+            maxTwistsAfter = GF_Random.min_TBA;
         }
-        if (maxTwistsAfter > 5) {
-            maxTwistsAfter = 5;
+        if (maxTwistsAfter > GF_Random.max_TBA) {
+            maxTwistsAfter = GF_Random.max_TBA;
         }
 
-        // how many crosses, minimal 1 cross, therefor add 1 to random integer
+        // how many crosses, minimal 1 cross, therefore add 1 to random integer
         let lengthCrosses = Math.floor(Math.random() * maxCrosses) + 1;
 
         // twists before first C
@@ -259,7 +227,7 @@ const GF_Random = {
     },
 
     // generate a string with "L", "R".
-    // note: string of 0, 1, ..., maxTwists twists, therefor (maxTwists + 1)
+    // note: string of 0, 1, ..., maxTwists twists, therefore (maxTwists + 1)
     // This function gives a chance of 0 twists of (1 / maxTwitst)
     genTwistsBA(maxTwists) {
         let lengthAll = Math.floor(Math.random() * (maxTwists + 1));
@@ -288,7 +256,7 @@ const GF_Random = {
     },
 
     // generate a string with "L", "R".
-    // note: string of 0, 1, ..., maxTwists twists, therefor (maxTwists + 1)
+    // note: string of 0, 1, ..., maxTwists twists, therefore (maxTwists + 1)
     // This function gives a change for zero twists of (1 / square(maxTwists))
     genTwistsCC(maxTwists) {
 
@@ -340,4 +308,85 @@ const GF_Random = {
 
         return vId;
     },
+
+    // I want to keep genRandomStitchList and genRandomStitch as flexible as is. Therefore, construct as below.
+    // Why this display-function, as <p setRandomList> also displays stitchArray = genRandomStitchList?
+    // We want to add the colorcode and the threaddiagram to the list. See p2t.newlegendStitch.
+    displayRandomStitchList() {
+
+        let displayStitch;
+        let displayElement;
+        let threadSvg, colorCodeSvg, figure;
+
+        displayElement = document.getElementById("displayRandomArray");
+        displayElement.innerHTML = "";
+
+        for (let i = 0; i < GF_Random.stitchArray.length; i++) {
+
+            displayStitch = GF_Random.stitchArray[i];
+
+            // copied from newLegendStitch, as "document.body.appendChild(figure)" does not clean up previous result, and picts to large
+            // without "figcaption"
+
+            threadSvg = GF_svgP2T.newSVG(40,60);
+            GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
+            GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
+
+            // copied from GF_stitches.setcolorcode()
+            colorCodeSvg = document.createElement("colorCodeSvg");
+            colorCodeSvg.innerHTML = `
+            <svg width="20px" height="25px">
+            <g transform="scale(2,2)">
+            <g transform="translate(5,6)">
+              ${PairSvg.shapes(displayStitch.toLowerCase())}
+            </g>
+            </g>
+            </svg>`
+
+            figure = document.createElement("figure");
+            figure.append(threadSvg);
+
+            displayElement.appendChild(figure);
+            displayElement.appendChild(colorCodeSvg);
+            displayElement.innerHTML += "&nbsp;" + "&nbsp;" + displayStitch;
+            displayElement.innerHTML += "<br>";
+
+        }
+    },
+
+
+    makeRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
+        // The function can be called with or without attributes.
+        // without Number(), document.value is a string. With unexpected results in function genTwists.
+
+        // number of stitches
+        if (stitchesRequired === undefined) {
+            stitchesRequired = Number(document.getElementById("stitchesRequired").value);
+        }
+        // maximum number of crosses
+        if (maxCrosses === undefined) {
+            maxCrosses = Number(document.getElementById("maxCrosses").value);
+        }
+        // maximum number of twists between two crosses
+        if (maxTwistsBetweenCrosses === undefined) {
+            maxTwistsBetweenCrosses = Number(document.getElementById("maxTwistsBetweenCrosses").value);
+        }
+        // maximum number of twists before stitch
+        if (maxTwistsBefore === undefined) {
+            maxTwistsBefore = Number(document.getElementById("maxTwistsBefore").value);
+        }
+        // maximum number of twists after stitch
+        if (maxTwistsAfter === undefined) {
+            maxTwistsAfter = Number(document.getElementById("maxTwistsAfter").value);
+        }
+
+        GF_Random.genRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter);
+        GF_Random.displayRandomStitchList();
+
+        return GF_Random.stitchArray;
+    },
 }
+
+
+
+

@@ -24,4 +24,8 @@ button {
     font-size: medium;
 }
 
-input {width: 50px}
+input {width: 50px;}
+
+/* overrule p2t.styles.css */
+.cross, .twist { fill: #fafafa; opacity: 0;}
+

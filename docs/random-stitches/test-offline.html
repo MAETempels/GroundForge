@@ -5,7 +5,11 @@
     <title lang="en">GF: Random stitches generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="../js/stitch-gallery.js"></script>
+    <script type="text/javascript" src="../p2t/svgPairsToThreads.js"></script>
+    <script type="text/javascript" src="../js/GroundForge-opt.js"></script>
+
     <link rel="stylesheet" href="../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../p2t/styles.css" type="text/css">
     <link rel="stylesheet" href="random-stitches.css" type="text/css">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/GroundForge/favicon/favicon-32x32.png">
@@ -23,6 +27,7 @@
             font-size: 46px; font-weight: normal; margin-top: 0; margin-bottom: 0.2em; letter-spacing: -1px; width: 100%; }
         main td.nowrap { white-space:nowrap;}
     </style>
+    <script src="../js/GroundForge-opt.js"></script>
 </head>
 
 <body>
@@ -66,12 +71,14 @@
 
         <div>
             <br>
-            <a id="slag0" class="button" type="button" href="javascript:GF_Random.genRandomStitchList()">Generate list of stitches on a new page</a>
-            <button class="button" type="button" onclick="document.getElementById('random1').innerHTML = GF_Random.genRandomStitchList()">
-                Generate list of stitches
+            <button class="button" type="button" onclick="document.getElementById('random0').innerHTML = GF_Random.genRandomStitchList(2,2,2,2,2)">
+                Generate 2 stitches
             </button>
-            <button class="button" type="button" onclick="document.getElementById('random2').innerHTML = GF_Random.genRandomStitchList(3,2,1,0,2)">
-                Generate list of stitches with fixed attributes
+            <button class="button" type="button" onclick="document.getElementById('random1').innerHTML = GF_Random.makeRandomStitchList()">
+                Generate &AMP; display list of stitches
+            </button>
+            <button class="button" type="button" onclick="document.getElementById('random2').innerHTML = GF_Random.makeRandomStitchList(3,2,1,0,2)">
+                Generate &AMP; display 3 stitches with fixed attributes
             </button>
             <button class="button" type="button" onclick="document.getElementById('random3').innerHTML = GF_Random.genRandomStitch(3,1,0,2)">
                 Generate one stitch with fixed attributes
@@ -79,13 +86,16 @@
             <br><br>
         </div>
 
+        <div>
+        <p>Here the simple version, these are not cleaned.</p>
+        <p id="random0"></p>
         <p id="random1"></p>
-        <br>
-        <br>
         <p id="random2"></p>
-        <br>
-        <br>
         <p id="random3"></p>
+        </div>
+
+        <p>Here with pictures.</p>
+        <p id="displayRandomArray"></p>
 
     </main>
 </body>
