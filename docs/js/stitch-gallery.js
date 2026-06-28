@@ -334,8 +334,21 @@ const GF_Random = {
 
             // copied from GF_stitches.setcolorcode()
             colorCodeSvg = document.createElement("colorCodeSvg");
-            colorCodeSvg.innerHTML = `
-            <svg width="20px" height="25px">
+
+            colorCodeSvg.innerHTML += `
+                <svg width="40px" height="40px">
+                <defs>
+                    <marker id="twist-1" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
+                    <path d="M 0 6 L 0 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
+                    </marker>
+                    <marker id="twist-2" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
+                    <path d="M -1 6 L -1 -6 M 1 6 L 1,-6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
+                    </marker>
+                    <marker id="twist-3" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
+                    <path d="M -1.2 6 L -1.2 -6 M 0 6 L 0 -6 M 1.2 6 L 1.2 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
+                    </marker>
+                 </defs>
+                <path d="M 22 22 L 31 31 M 31 31 L 40 40" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-3');"></path>
             <g transform="scale(2,2)">
             <g transform="translate(5,6)">
               ${PairSvg.shapes(displayStitch.toLowerCase())}
