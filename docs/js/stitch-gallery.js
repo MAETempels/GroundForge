@@ -316,7 +316,8 @@ const GF_Random = {
 
         let displayStitch;
         let displayElement;
-        let threadSvg, colorCodeSvg, figure;
+        let threadSvg, colorCodeSvg, figure, twistMarkSvg;
+        let southEast, southWest, northEast, northWest;
 
         displayElement = document.getElementById("displayRandomArray");
         displayElement.innerHTML = "";
@@ -334,9 +335,16 @@ const GF_Random = {
 
             // copied from GF_stitches.setcolorcode()
             colorCodeSvg = document.createElement("colorCodeSvg");
+            twistMarkSvg = document.createElement("twistMarkSvg");
 
-            colorCodeSvg.innerHTML += `
-                <svg width="40px" height="40px">
+            southEast = "3";
+            southWest = "2";
+            northEast = "1";
+            northWest = "2";
+
+            // line not long enough for more than 3 twistmarks
+            twistMarkSvg.innerHTML = `
+                <svg width="40px" height="40px" fill="none">
                 <defs>
                     <marker id="twist-1" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
                     <path d="M 0 6 L 0 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
@@ -348,18 +356,25 @@ const GF_Random = {
                     <path d="M -1.2 6 L -1.2 -6 M 0 6 L 0 -6 M 1.2 6 L 1.2 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
                     </marker>
                  </defs>
-                <path d="M 22 22 L 31 31 M 31 31 L 40 40" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-3');"></path>
+                <path d="M 22 22 L 31 31 M 31 31 L 40 40" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${southEast}');"></path>
+                <path d="M 22 22 L 13 31 M 13 31 L 4 40" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${southWest}');"></path>
+                <path d="M 22 22 L 13 13 M 13 13 L 4 4" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${northWest}');"></path>
+                <path d="M 22 22 L 31 13 M 31 13 L 40 4" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${northEast}');"></path>
+                </svg>`;
+
+            colorCodeSvg.innerHTML = `<svg width="20px" height="25px">0
             <g transform="scale(2,2)">
             <g transform="translate(5,6)">
               ${PairSvg.shapes(displayStitch.toLowerCase())}
             </g>
             </g>
-            </svg>`
+            </svg>`;
 
             figure = document.createElement("figure");
             figure.append(threadSvg);
 
             displayElement.appendChild(figure);
+            displayElement.appendChild(twistMarkSvg);
             displayElement.appendChild(colorCodeSvg);
             displayElement.innerHTML += "&nbsp;" + "&nbsp;" + displayStitch;
             displayElement.innerHTML += "<br>";
