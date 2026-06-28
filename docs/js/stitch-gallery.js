@@ -337,10 +337,14 @@ const GF_Random = {
             colorCodeSvg = document.createElement("colorCodeSvg");
             twistMarkSvg = document.createElement("twistMarkSvg");
 
-            southEast = "3";
-            southWest = "2";
-            northEast = "1";
-            northWest = "2";
+            southEast = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("L","")).length.toString();
+            southWest = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("R","")).length.toString();
+            northEast = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("L","")).length.toString();
+            northWest = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("R","")).length.toString();
+            if (southEast > 3) {southEast = 3};
+            if (southWest > 3) {southWest = 3};
+            if (northEast > 3) {northEast = 3};
+            if (northWest > 3) {northWest = 3};
 
             // line not long enough for more than 3 twistmarks
             twistMarkSvg.innerHTML = `
@@ -362,6 +366,7 @@ const GF_Random = {
                 <path d="M 22 22 L 31 13 M 31 13 L 40 4" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${northEast}');"></path>
                 </svg>`;
 
+            // todo : place colorCodeSvg on top of twistMarkSvg. Playing with translate seems to cut of edges on the overlap.
             colorCodeSvg.innerHTML = `<svg width="20px" height="25px">0
             <g transform="scale(2,2)">
             <g transform="translate(5,6)">
