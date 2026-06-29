@@ -333,50 +333,51 @@ const GF_Random = {
             GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
             GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
 
-           // set variabeles for twistmarks
-
+            // set variabeles for twistmarks
             southEast = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("L","")).length.toString();
             southWest = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("R","")).length.toString();
             northEast = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("L","")).length.toString();
             northWest = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("R","")).length.toString();
-            if (southEast > 4) {southEast = 4};
-            if (southWest > 4) {southWest = 4};
-            if (northEast > 4) {northEast = 4};
-            if (northWest > 4) {northWest = 4};
+            if (southEast > 5) {southEast = 5}
+            if (southWest > 5) {southWest = 5}
+            if (northEast > 5) {northEast = 5}
+            if (northWest > 5) {northWest = 5}
+
+            let t1 = "M -1.25 6 L -1.25 -6";
+            let t2 = t1 + " " + "M -0.5 6 L -0.5 -6" ;
+            let t3 = t2 + " " + "M 0.25 6 L 0.25 -6" ;
+            let t4 = t3 + " " + "M 1 6 L 1 -6" ;
+            let t5 = t4 + " " + "M 1.75 6 L 1.75 -6" ;
 
             function twistMarkerBase(path,swne) {
-                return `<path d="M 20 20 ${path}" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${swne}');"></path>`;
-            };
+                return `<path d="M 26 26 ${path}" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${swne}');"></path>`;
+            }
             function twistMarkerLine(twistId, path) {
                 return `<marker id="${twistId}" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
                     <path d="${path}" fill="#000" stroke="#000" stroke-width="0.5px"></path>
                     </marker>`
-            };
+            }
 
             // copied from GF_sttches.setcolorcode()
             colorCodeSvg = document.createElement("colorCodeSvg");
 
-            let t1 = "M -0.8 6 L -0.8 -6";
-            let t2 = t1 + " " + "M 0 6 L 0 -6" ;
-            let t3 = t2 + " " + "M 0.8 6 L 0.8 -6" ;
-            let t4 = t3 + " " + "M 1.6 6 L 1.6 -6" ;
-
-            // line not long enough for more than 3 twistmarks
+            // the middle of the base-path has to be at least 10 units of the centre, else to close to colorcode-block
             colorCodeSvg.innerHTML = `
-                <svg width="40px" height="40px" fill="none">
+                <svg width="50px" height="50px" fill="none">
                 <defs>
                    ${twistMarkerLine("twist-1",`${t1}` )}
                    ${twistMarkerLine("twist-2",`${t2}` )}
                    ${twistMarkerLine("twist-3",`${t3}` )}
                    ${twistMarkerLine("twist-4",`${t4}` )}
+                   ${twistMarkerLine("twist-5",`${t5}` )}
                 </defs>
-                ${twistMarkerBase("L 30 30 M 30 30 L 40 40", southEast)}
-                ${twistMarkerBase("L 10 30 M 10 30 L  0 40", southWest)}
-                ${twistMarkerBase("L 10 10 M 10 10 L  0  0", northWest)}
-                ${twistMarkerBase("L 30 10 M 30 10 L 40  0", northEast)}
+                ${twistMarkerBase("L 36 36 M 36 36 L 52 52", southEast)}
+                ${twistMarkerBase("L 16 36 M 16 36 L  0 52", southWest)}
+                ${twistMarkerBase("L 16 16 M 16 16 L  0  0", northWest)}
+                ${twistMarkerBase("L 36 16 M 36 16 L 52  0", northEast)}
                  
             <g transform="scale(2,2)">
-            <g transform="translate(10,10)">
+            <g transform="translate(13,13)">
               ${PairSvg.shapes(displayStitch.toLowerCase())}
             </g>
             </g>
