@@ -346,6 +346,10 @@ const GF_Random = {
             if (northEast > 3) {northEast = 3};
             if (northWest > 3) {northWest = 3};
 
+            function twistMarkerLine(path,swne) {
+                return `<path d="M 20 20 ${path}" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${swne}');"></path>`;
+            };
+
             // line not long enough for more than 3 twistmarks
             twistMarkSvg.innerHTML = `
                 <svg width="40px" height="40px" fill="none">
@@ -360,16 +364,14 @@ const GF_Random = {
                     <path d="M -1.2 6 L -1.2 -6 M 0 6 L 0 -6 M 1.2 6 L 1.2 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
                     </marker>
                  </defs>
-                <path d="M 22 22 L 31 31 M 31 31 L 40 40" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${southEast}');"></path>
-                <path d="M 22 22 L 13 31 M 13 31 L 4 40" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${southWest}');"></path>
-                <path d="M 22 22 L 13 13 M 13 13 L 4 4" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${northWest}');"></path>
-                <path d="M 22 22 L 31 13 M 31 13 L 40 4" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${northEast}');"></path>
-                </svg>`;
-
-            // todo : place colorCodeSvg on top of twistMarkSvg. Playing with translate seems to cut of edges on the overlap.
-            colorCodeSvg.innerHTML = `<svg width="20px" height="25px">0
+                 ${twistMarkerLine("L 30 30 M 30 30 L 40 40", southEast)}
+                 ${twistMarkerLine("L 10 30 M 10 30 L  0 40", southWest)}
+                 ${twistMarkerLine("L 10 10 M 10 10 L  0  0", northWest)}
+                 ${twistMarkerLine("L 30 10 M 30 10 L 40  0", northEast)}
+                 
+           
             <g transform="scale(2,2)">
-            <g transform="translate(5,6)">
+            <g transform="translate(10,10)">
               ${PairSvg.shapes(displayStitch.toLowerCase())}
             </g>
             </g>
@@ -419,7 +421,6 @@ const GF_Random = {
         return GF_Random.stitchArray;
     },
 }
-
 
 
 
