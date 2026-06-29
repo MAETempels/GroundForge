@@ -316,7 +316,7 @@ const GF_Random = {
 
         let displayStitch;
         let displayElement;
-        let threadSvg, colorCodeSvg, figure, twistMarkSvg;
+        let threadSvg, colorCodeSvg, figure;
         let southEast, southWest, northEast, northWest;
 
         displayElement = document.getElementById("displayRandomArray");
@@ -333,43 +333,48 @@ const GF_Random = {
             GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
             GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
 
-            // copied from GF_stitches.setcolorcode()
-            colorCodeSvg = document.createElement("colorCodeSvg");
-            twistMarkSvg = document.createElement("twistMarkSvg");
+           // set variabeles for twistmarks
 
             southEast = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("L","")).length.toString();
             southWest = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("R","")).length.toString();
             northEast = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("L","")).length.toString();
             northWest = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("R","")).length.toString();
-            if (southEast > 3) {southEast = 3};
-            if (southWest > 3) {southWest = 3};
-            if (northEast > 3) {northEast = 3};
-            if (northWest > 3) {northWest = 3};
+            if (southEast > 4) {southEast = 4};
+            if (southWest > 4) {southWest = 4};
+            if (northEast > 4) {northEast = 4};
+            if (northWest > 4) {northWest = 4};
 
-            function twistMarkerLine(path,swne) {
+            function twistMarkerBase(path,swne) {
                 return `<path d="M 20 20 ${path}" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${swne}');"></path>`;
             };
+            function twistMarkerLine(twistId, path) {
+                return `<marker id="${twistId}" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
+                    <path d="${path}" fill="#000" stroke="#000" stroke-width="0.5px"></path>
+                    </marker>`
+            };
+
+            // copied from GF_sttches.setcolorcode()
+            colorCodeSvg = document.createElement("colorCodeSvg");
+
+            let t1 = "M -0.8 6 L -0.8 -6";
+            let t2 = t1 + " " + "M 0 6 L 0 -6" ;
+            let t3 = t2 + " " + "M 0.8 6 L 0.8 -6" ;
+            let t4 = t3 + " " + "M 1.6 6 L 1.6 -6" ;
 
             // line not long enough for more than 3 twistmarks
-            twistMarkSvg.innerHTML = `
+            colorCodeSvg.innerHTML = `
                 <svg width="40px" height="40px" fill="none">
                 <defs>
-                    <marker id="twist-1" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
-                    <path d="M 0 6 L 0 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
-                    </marker>
-                    <marker id="twist-2" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
-                    <path d="M -1 6 L -1 -6 M 1 6 L 1,-6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
-                    </marker>
-                    <marker id="twist-3" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
-                    <path d="M -1.2 6 L -1.2 -6 M 0 6 L 0 -6 M 1.2 6 L 1.2 -6" fill="#000" stroke="#000" stroke-width="0.7px"></path>
-                    </marker>
-                 </defs>
-                 ${twistMarkerLine("L 30 30 M 30 30 L 40 40", southEast)}
-                 ${twistMarkerLine("L 10 30 M 10 30 L  0 40", southWest)}
-                 ${twistMarkerLine("L 10 10 M 10 10 L  0  0", northWest)}
-                 ${twistMarkerLine("L 30 10 M 30 10 L 40  0", northEast)}
+                   ${twistMarkerLine("twist-1",`${t1}` )}
+                   ${twistMarkerLine("twist-2",`${t2}` )}
+                   ${twistMarkerLine("twist-3",`${t3}` )}
+                   ${twistMarkerLine("twist-4",`${t4}` )}
+                </defs>
+                ${twistMarkerBase("L 30 30 M 30 30 L 40 40", southEast)}
+                ${twistMarkerBase("L 10 30 M 10 30 L  0 40", southWest)}
+                ${twistMarkerBase("L 10 10 M 10 10 L  0  0", northWest)}
+                ${twistMarkerBase("L 30 10 M 30 10 L 40  0", northEast)}
                  
-           
             <g transform="scale(2,2)">
             <g transform="translate(10,10)">
               ${PairSvg.shapes(displayStitch.toLowerCase())}
@@ -381,7 +386,6 @@ const GF_Random = {
             figure.append(threadSvg);
 
             displayElement.appendChild(figure);
-            displayElement.appendChild(twistMarkSvg);
             displayElement.appendChild(colorCodeSvg);
             displayElement.innerHTML += "&nbsp;" + "&nbsp;" + displayStitch;
             displayElement.innerHTML += "<br>";
