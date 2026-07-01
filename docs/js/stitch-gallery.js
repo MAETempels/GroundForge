@@ -365,7 +365,7 @@ const GF_Random = {
                     </marker>`
             }
 
-            // copied from GF_sttches.setcolorcode()
+            // copied from GF_stitches.setcolorcode()
             colorCodeSvg = document.createElement("colorCodeSvg");
 
             // the middle of the base-path has to be at least 10 units of the centre, else to close to colourcode-block
