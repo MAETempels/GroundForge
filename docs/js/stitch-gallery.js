@@ -329,11 +329,16 @@ const GF_Random = {
             // copied from newLegendStitch, as "document.body.appendChild(figure)" does not clean up previous result, and picts to large
             // without "figcaption"
 
-            threadSvg = GF_svgP2T.newSVG(40,60);
-            GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,40,60);
+            let containerWidth = 60;
+            let containerHeight = Math.max(60, displayStitch.length * 10);
+
+            threadSvg = GF_svgP2T.newSVG(containerWidth,containerHeight);
+            // Overrule viewbox settings from newSVG. Necessary to line out on bottom of colorcode-element.
+            threadSvg.setAttribute("viewBox", "-10 -10 " + (containerWidth + 12) + " " + (containerHeight + 12));
+            GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,containerWidth,containerHeight);
             GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
 
-            // set variabeles for twistmarks
+            // set variables for twistmarks
             southEast = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("L","")).length.toString();
             southWest = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("R","")).length.toString();
             northEast = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("L","")).length.toString();
@@ -343,18 +348,18 @@ const GF_Random = {
             if (northEast > 5) {northEast = 5}
             if (northWest > 5) {northWest = 5}
 
-            let t1 = "M -1.25 6 L -1.25 -6";
-            let t2 = t1 + " " + "M -0.5 6 L -0.5 -6" ;
-            let t3 = t2 + " " + "M 0.25 6 L 0.25 -6" ;
-            let t4 = t3 + " " + "M 1 6 L 1 -6" ;
-            let t5 = t4 + " " + "M 1.75 6 L 1.75 -6" ;
+            let t1 = "M 0.0 6 L 0.0 -6";
+            let t2 = t1 + " M 5.0 6 L 5.0 -6";
+            let t3 = t2 + " M 2.5 6 L 2.5-6";
+            let t4 = t3 + " M -2.5 6 L -2.5 -6";
+            let t5 = t4 + " M -5.0 6 L -5.0 -6";
 
             function twistMarkerBase(path,swne) {
                 return `<path d="M 26 26 ${path}" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${swne}');"></path>`;
             }
             function twistMarkerLine(twistId, path) {
-                return `<marker id="${twistId}" viewBox="-2 -2 4 4" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
-                    <path d="${path}" fill="#000" stroke="#000" stroke-width="0.5px"></path>
+                return `<marker id="${twistId}" viewBox="-6 -6 12 12" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
+                    <path d="${path}" fill="#000" stroke="#000" stroke-width="0.8px"></path>
                     </marker>`
             }
 
