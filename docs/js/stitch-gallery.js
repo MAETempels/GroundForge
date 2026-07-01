@@ -326,14 +326,14 @@ const GF_Random = {
 
             displayStitch = GF_Random.stitchArray[i];
 
-            // copied from newLegendStitch, as "document.body.appendChild(figure)" does not clean up previous result, and picts to large
-            // without "figcaption"
+            // Copied from newLegendStitch, as "document.body.appendChild(figure)" does not clean up previous result, and picts to large.
+            // Without "figcaption", and with much other changes.
 
             let containerWidth = 60;
             let containerHeight = Math.max(60, displayStitch.length * 10);
 
             threadSvg = GF_svgP2T.newSVG(containerWidth,containerHeight);
-            // Overrule viewbox settings from newSVG. Necessary to line out on bottom of colorcode-element.
+            // Overrule viewbox settings from newSVG. Also necessary to line out on bottom of colorcode-element.
             threadSvg.setAttribute("viewBox", "-10 -10 " + (containerWidth + 12) + " " + (containerHeight + 12));
             GF_svgP2T.newStitch(displayStitch, 0,0, threadSvg,containerWidth,containerHeight);
             GF_svgP2T.addThreadClasses(threadSvg);          // this gives the lines their color
@@ -343,11 +343,13 @@ const GF_Random = {
             southWest = ((displayStitch.substring(displayStitch.lastIndexOf("C")+1)).replaceAll("R","")).length.toString();
             northEast = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("L","")).length.toString();
             northWest = ((displayStitch.substring(0, displayStitch.indexOf("C"))).replaceAll("R","")).length.toString();
+            // User-input is limited to max 5; programmers-input to max 8. Because of view-box definition we show a maximum of 5 dashes.
             if (southEast > 5) {southEast = 5}
             if (southWest > 5) {southWest = 5}
             if (northEast > 5) {northEast = 5}
             if (northWest > 5) {northWest = 5}
 
+            // note: these dashes have to fit in the viewbox defined at twistMarkerLine.
             let t1 = "M 0.0 6 L 0.0 -6";
             let t2 = t1 + " M 5.0 6 L 5.0 -6";
             let t3 = t2 + " M 2.5 6 L 2.5-6";
@@ -357,7 +359,7 @@ const GF_Random = {
             function twistMarkerBase(path,swne) {
                 return `<path d="M 26 26 ${path}" style="stroke: #000; stroke-width: 1.7px; marker-mid: url('#twist-${swne}');"></path>`;
             }
-            function twistMarkerLine(twistId, path) {
+            function twistMarkerDash(twistId, path) {
                 return `<marker id="${twistId}" viewBox="-6 -6 12 12" markerWidth="9" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
                     <path d="${path}" fill="#000" stroke="#000" stroke-width="0.8px"></path>
                     </marker>`
@@ -366,15 +368,15 @@ const GF_Random = {
             // copied from GF_sttches.setcolorcode()
             colorCodeSvg = document.createElement("colorCodeSvg");
 
-            // the middle of the base-path has to be at least 10 units of the centre, else to close to colorcode-block
+            // the middle of the base-path has to be at least 10 units of the centre, else to close to colourcode-block
             colorCodeSvg.innerHTML = `
                 <svg width="50px" height="50px" fill="none">
                 <defs>
-                   ${twistMarkerLine("twist-1",`${t1}` )}
-                   ${twistMarkerLine("twist-2",`${t2}` )}
-                   ${twistMarkerLine("twist-3",`${t3}` )}
-                   ${twistMarkerLine("twist-4",`${t4}` )}
-                   ${twistMarkerLine("twist-5",`${t5}` )}
+                   ${twistMarkerDash("twist-1",`${t1}` )}
+                   ${twistMarkerDash("twist-2",`${t2}` )}
+                   ${twistMarkerDash("twist-3",`${t3}` )}
+                   ${twistMarkerDash("twist-4",`${t4}` )}
+                   ${twistMarkerDash("twist-5",`${t5}` )}
                 </defs>
                 ${twistMarkerBase("L 36 36 M 36 36 L 52 52", southEast)}
                 ${twistMarkerBase("L 16 36 M 16 36 L  0 52", southWest)}
@@ -398,7 +400,6 @@ const GF_Random = {
 
         }
     },
-
 
     makeRandomStitchList(stitchesRequired, maxCrosses, maxTwistsBetweenCrosses, maxTwistsBefore, maxTwistsAfter) {
         // The function can be called with or without attributes.
